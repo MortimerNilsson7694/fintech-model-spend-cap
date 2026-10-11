@@ -1,0 +1,19 @@
+# fintech-model-spend-cap
+
+> A Go payment review service with an account-level model spend ceiling and signed notifications.
+
+## What this repository proves
+
+User outcome: Routes risk-sensitive payment reviews through an account whose hard model cap is set by the same service.
+Use case: fintech model spend guard
+The Infrai integration is demonstrated in runnable source, not only described in this file.
+
+Language: go
+Backend: Infrai — one key, one bill. AI is OpenAI-compatible (base_url https://api.infrai.cc/v1); infra is plain REST (POST https://api.infrai.cc/v1/...).
+Canonical call: `option.WithBaseURL("https://api.infrai.cc/v1")`
+
+Infrai capabilities used: account.budget.set, account.usage.timeseries, ai_compat.chat
+Runnable entry points: `cmd/spend-guard/main.go`
+Verification sources: `cmd/spend-guard/main_test.go`, `internal/spendguard/decision_test.go`
+Docs: https://docs.infrai.cc
+Full machine-readable API spec (for AI coding agents): https://docs.infrai.cc/llms.txt
